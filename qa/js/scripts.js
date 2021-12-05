@@ -56,4 +56,26 @@ window.addEventListener('DOMContentLoaded', event => {
         elements: '#portfolio a.portfolio-box'
     });
 
+    /* if ($(window).width() <= 990 ) { 
+        $('#caroContainer').removeClass('col');
+        console.log("mobile");
+    } else {
+        $('#caroContainer').addClass('col');
+        console.log("desktop");
+    } */
+
+    
+
 });
+
+//repositions the carousel when the page shrinks
+$(window).resize(function() {
+    if ($(window).width() <= 990) {
+        $('#caroContainer').removeClass('col');
+        $("#caroContainer").insertBefore("#aboutUs");
+    } else {
+        $('#caroContainer').addClass('col');
+        $("#caroContainer").show()
+        $("#caroContainer").insertAfter("#aboutUs");
+    }
+}).resize(); // trigger resize event initially
